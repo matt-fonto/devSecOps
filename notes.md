@@ -44,3 +44,9 @@
 - On an average software project, only 10-20% is custom code. We have, under the hood, thousands of libraries written
 - Libraries and frameworks that you important can, themselves, import other libraries and frameworks
 - Beyond libraries, we have containers, which are written with a bunch of packages inherited from public sources
+
+## 3. Exploiting common vulnerabilities
+
+<!-- video 19:04 -->
+
+https://github.com/snyk-labs/nodejs-goof
