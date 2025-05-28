@@ -73,8 +73,40 @@ Accept: application/json, */*;q=0.5
 - CURL: Command-line utility for transferring data to or from a server
   ![alt text](image-2.png)
 
+#### CURL Structure
+
+1. curl -X POST -> method
+2. Data required for endpoint
+
+```
+-d "Body=hey"
+-d "From=somewhere"
+-d "To=someone"
+```
+
+3. `https://cool_website/endpoint/` -> the url
+
+4. authentication
+
+```
+-u "$SOME_AUTH"
+```
+
 - Logging and getting the credentials
+
+- curl X "POST" -> uses the HTTP post
+- --cokie c.txt -> reads any existing cookies from the file c.txt and includes them in the request
+- --cookie-jar c.txt -> after the response, saved any "Set-Cookie" headers back into c.txt (subsequent requests reuse the session)
+- -H "Content-Type: application/json" -> sets the header of content type, telling the server to expect JSON in the body
+- --data-binary -> sends the JSON payload as-is (no URL-encoding)
+- "http/..." -> the endpoint
 
 ```bash
 curl -X "POST" --cookie c.txt --cookie-jar c.txt -H 'Content-Type: application/json' --data-binary '{"username":"admin@snyk.io", "password":"SuperSecretPassword"}' 'http://localhost:3001/login'
+```
+
+- Retrieving data from server
+
+```bash
+curl -X "POST" --cookie c.txt --cookie-jar c.txt -H 'Content-Type: application/json' --data-binary '{"email":"admin@snyk.io", "firstname": "admin", "lastname":"admin", "country":"IL", "phone":"+123123", "layout":"./../package.json"}' "http://localhost:3001/account_details"
 ```
