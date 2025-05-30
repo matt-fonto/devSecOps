@@ -108,5 +108,34 @@ curl -X "POST" --cookie c.txt --cookie-jar c.txt -H 'Content-Type: application/j
 - Retrieving data from server
 
 ```bash
-curl -X "POST" --cookie c.txt --cookie-jar c.txt -H 'Content-Type: application/json' --data-binary '{"email":"admin@snyk.io", "firstname": "admin", "lastname":"admin", "country":"IL", "phone":"+123123", "layout":"./../package.json"}' "http://localhost:3001/account_details"
+curl -X "POST" --cookie c.txt --cookie-jar c.txt -H 'Content-Type: application/json' --data-binary '{"email":"admin@snyk.io", "firstname": "admin", "lastname":"admin", "country":"IL", "phone":"+123123", "layout":"../../package.json"}' "http://localhost:3001/account_details"
 ```
+
+### Injecting JavaScript
+
+```
+localhost:3001/login?redirectPage="><script>alert("hey")</script>
+```
+
+### How to prevent the most common cross site scripting attack
+
+```
+<!-- this is injects javascript into the html -->
+<img src onerror="alert(hi)">
+<img src onerror="alert(document.cookie)">
+```
+
+- How to solve it?
+
+```js
+// instead of using innerHTML, use innerText
+document.getElementById("query-output").innerHTML = query;
+
+// instead of using innerText, use innerText
+document.getElementById("query-output").innerText = query;
+```
+
+## 4. Solving Vulnerabilities
+
+- Search for `Snyk` extension on VSCode store
+- Install it and grant it permission and the necessary credentials
