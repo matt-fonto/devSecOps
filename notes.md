@@ -139,3 +139,10 @@ document.getElementById("query-output").innerText = query;
 
 - Search for `Snyk` extension on VSCode store
 - Install it and grant it permission and the necessary credentials
+
+### Installing snyk
+
+```
+npm install -g snyk
+snyk auth
+```
