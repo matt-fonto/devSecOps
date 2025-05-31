@@ -146,3 +146,16 @@ document.getElementById("query-output").innerText = query;
 npm install -g snyk
 snyk auth
 ```
+
+- We can also setup Snyk to run on the CI/CD pipeline to check out the code security
+
+### SAST (Static Application Security Testing)
+
+- It's a security testing that analyzes an application's source code, bytcode, or compiled code to identify potential vulnerabilities before it's deployed or executed
+
+- SAST tools analyze code patterns, data flows, and control flows within the application to detect various security risks, such as SQL injection, cross-site scripting, and buffer overflows
+
+#### SAST vs DAST
+
+- SAST differs from DAST (Dynamic Application Testing), which analyzes the application from an external perspective by simulating attacks
+- SAST focuses on the code itself, while DAST on the application's behavior when it's running
