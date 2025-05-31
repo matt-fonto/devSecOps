@@ -198,3 +198,32 @@ snyk auth
 3. Maintaining velocity
 
 - while shifting security left adds responsibilites to dev teams, the business owners have expectations that pipeline velocity won't be negatively impacted
+
+### Securing containers
+
+- Hackers might look into some server technologies and check which "fixes" they've done to some versions. Then, they can exploit these, knowing that in case some services are running on the previous (non-fixed versions), they can exploit those
+
+One interesting website: https://www.exploit-db.com/
+
+- These vulnerabilities include the possibility of sending files to somebody else's server or grab files from it
+
+- We can use Snyk, or other container scanning, to identify vulnerabilities on the docker image. Then, it returns similar to an ESLint error when we try to build the code. By doing that, ultimately, we're able to identify vulnerabilities and address them, either by changing the way the image is built or updating the library
+
+### Defense in Depth
+
+- Let's cover this into three themes: images, runtime, k8s
+
+#### Images
+
+- Minimize footprint: don't give hackers more tools to expand their exploits
+- Layer housekeeping: understand how layers work at build and run-time
+- Build strategies: multi-stage, repeatable builds, standardized labeling, alternative tools
+- Secure supply chain: know where images come from. Only CI should push to registries
+
+#### Runtime
+
+- Don't run as root: you probably don't need it
+- Privileged containers: almost definitely don't need it
+- Drop capabilities: Most apps don't need even Linux capabilities; dropping all and allow only what's needed
+- Read only root filesystem: Immutability makes exploiting your container harder
+- Deploy from known sources: pull from known registries only
