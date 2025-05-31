@@ -159,3 +159,25 @@ snyk auth
 
 - SAST differs from DAST (Dynamic Application Testing), which analyzes the application from an external perspective by simulating attacks
 - SAST focuses on the code itself, while DAST on the application's behavior when it's running
+
+## 5. DevSecOps and Containers
+
+- Development and Operations
+- Fast, repeatable builds
+- Ideation to production
+- Security, for a while, would be a late-stage thing
+- As containers became more of a thing, security started "moving-left" on the CI/CD pipeline
+
+### SDLC (Software Development Life Cycle) Pipeline
+
+- Structured process for building and delivering software
+- It automates and integrates various stages: coding, testing, deployment
+- Faster and more reliable software releases by automating tasks and providing continuous feedback
+- Chain of automated processes that move code through different stages
+
+1. Requirements gathering
+2. Design
+3. Development | coding
+4. Testing
+5. Deployment
+6. Maintenance
