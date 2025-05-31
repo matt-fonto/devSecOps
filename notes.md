@@ -167,6 +167,7 @@ snyk auth
 - Ideation to production
 - Security, for a while, would be a late-stage thing
 - As containers became more of a thing, security started "moving-left" on the CI/CD pipeline
+- Dev Sec Ops -> Between development and operations, there should be security
 
 ### SDLC (Software Development Life Cycle) Pipeline
 
@@ -181,3 +182,19 @@ snyk auth
 4. Testing
 5. Deployment
 6. Maintenance
+
+### Containers Challenges
+
+1. Increased scope of responsibility
+
+- historically, developers took care of their code and the libraries used
+- however, with containers, we add security concerns at the OS level: base-image selection, package installation, user and file permissions, etc
+
+2. Lack of expertise
+
+- these technologies used to be owned by other teams (system engineers, middleware teams)
+- many developers have never had to deal with securing these layers of the stack
+
+3. Maintaining velocity
+
+- while shifting security left adds responsibilites to dev teams, the business owners have expectations that pipeline velocity won't be negatively impacted
