@@ -227,3 +227,11 @@ One interesting website: https://www.exploit-db.com/
 - Drop capabilities: Most apps don't need even Linux capabilities; dropping all and allow only what's needed
 - Read only root filesystem: Immutability makes exploiting your container harder
 - Deploy from known sources: pull from known registries only
+
+#### Kubernetes
+
+- Secrets: Make sure they are encrypted
+- RBAC: Role-based access control
+- SecurityContext
+- Network policy: start with zero-trust and add rules as needed
+- Enforcement
